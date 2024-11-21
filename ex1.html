@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insert After Example</title>
+</head>
+<body>
+
+  <ul id="itemList">
+    <h1> 예시 </h1>
+    <li>항목 1</li>
+    <li>항목 2</li>
+    <li>항목 3</li>
+    <li>항목 4</li>
+    <li>항목 5</li>
+  </ul>
+
+  <button onclick="insertAfter()">새 항목 삽입</button>
+
+  <script>
+    function insertAfter() {
+      // 삽입하고 싶은 항목을 정의
+      const newItem = document.createElement("li");
+      newItem.textContent = "항목 추가";
+
+      // 삽입할 대상이 되는 요소를 찾기 (예: '항목 2' 뒤에 삽입)
+      const itemList = document.getElementById("itemList");
+      const targetItem = itemList.getElementsByTagName("li")[2]; // 셋 번째 항목 (항목 3)
+
+      // targetItem 뒤에 새로운 항목을 삽입
+      targetItem.parentNode.insertBefore(newItem, targetItem.nextSibling);
+    }
+  </script>
+
+</body>
+</html>
